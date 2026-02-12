@@ -5,6 +5,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'steak', cn: '牛排', emoji: '🥩', pronunciation: '/steɪk/', category: 'meat', 
     sentence: 'I like to eat juicy ____ for dinner.',
+    riddle: 'I am a thick piece of meat often eaten with a knife and fork. I come from a cow.',
     details: {
       syllables: 'steak (1)',
       breakdown: 's-teak',
@@ -16,6 +17,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'pork', cn: '豬肉', emoji: '🥓', pronunciation: '/pɔːk/', category: 'meat', 
     sentence: 'We use ____ to make delicious char siu.',
+    riddle: 'I am pink meat that comes from a curly-tailed animal. I make delicious bacon!',
     details: {
       syllables: 'pork (1)',
       breakdown: 'p-ork',
@@ -27,6 +29,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'beef', cn: '牛肉', emoji: '🐂', pronunciation: '/biːf/', category: 'meat', 
     sentence: 'Many people like eating ____ balls in soup.',
+    riddle: "I am red meat from an animal that says 'Moo'. You find me in burgers.",
     details: {
       syllables: 'beef (1)',
       breakdown: 'b-eef',
@@ -38,6 +41,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'chicken', cn: '雞肉', emoji: '🍗', pronunciation: '/ˈtʃɪkɪn/', category: 'meat', 
     sentence: 'Fried ____ is a very popular snack.',
+    riddle: "I am white meat from an animal that lays eggs and says 'Cluck cluck'.",
     details: {
       syllables: 'chick-en (2)',
       breakdown: 'chick + en',
@@ -49,6 +53,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'grapes', cn: '提子', emoji: '🍇', pronunciation: '/ɡreɪps/', category: 'fruit', 
     sentence: 'Purple ____ are sweet and small.',
+    riddle: 'We are small, round, and sweet. We come in green or purple bunches.',
     details: {
       syllables: 'grapes (1)',
       breakdown: 'g-rapes',
@@ -60,6 +65,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'cherries', cn: '櫻桃', emoji: '🍒', pronunciation: '/ˈtʃeriz/', category: 'fruit', 
     sentence: 'Red ____ look like little hearts.',
+    riddle: 'We are small, red, and round. We grow in pairs and have a pit inside.',
     details: {
       syllables: 'cher-ries (2)',
       breakdown: 'cher-ries',
@@ -71,6 +77,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'lychees', cn: '荔枝', emoji: '🧄', pronunciation: '/ˈlaɪtʃiːz/', category: 'fruit', 
     sentence: '____ are sweet white fruits from summer.',
+    riddle: 'I am a summer fruit with bumpy red skin and sweet white flesh inside.',
     details: {
       syllables: 'ly-chees (2)',
       breakdown: 'ly-chees',
@@ -82,6 +89,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'longans', cn: '龍眼', emoji: '🥥', pronunciation: '/ˈlɒŋ.ɡənz/', category: 'fruit', 
     sentence: '____ are small brown fruits with big seeds.',
+    riddle: "I am a small brown fruit. My name in Chinese means 'Dragon Eye'.",
     details: {
       syllables: 'lon-gans (2)',
       breakdown: 'lon-gans',
@@ -93,6 +101,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'spaghetti', cn: '意大利麵', emoji: '🍝', pronunciation: '/spəˈgeti/', category: 'staple', 
     sentence: 'I love long ____ with tomato sauce.',
+    riddle: 'I look like long, thin yellow strings. I am very fun to twirl on a fork!',
     details: {
       syllables: 'spa-ghet-ti (3)',
       breakdown: 'spa-ghet-ti',
@@ -104,6 +113,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'macaroni', cn: '通心粉', emoji: '🥣', pronunciation: '/ˌmækəˈrəʊni/', category: 'staple', 
     sentence: 'Grandma makes ____ soup for breakfast.',
+    riddle: 'I am short, curved pasta with a hole in the middle. I love cheese!',
     details: {
       syllables: 'ma-ca-ro-ni (4)',
       breakdown: 'ma-ca-ro-ni',
@@ -115,6 +125,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'carrots', cn: '紅蘿蔔', emoji: '🥕', pronunciation: '/ˈkærəts/', category: 'vegetable', 
     sentence: 'Rabbits love to eat orange ____.',
+    riddle: 'I am a long, orange root vegetable. Rabbits love to munch on me.',
     details: {
       syllables: 'car-rots (2)',
       breakdown: 'car-rots',
@@ -126,6 +137,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'tomatoes', cn: '番茄', emoji: '🍅', pronunciation: '/təˈmɑːtəʊz/', category: 'vegetable', 
     sentence: 'Red ____ are juicy and healthy.',
+    riddle: 'I am red and round. People often put me in salads, but I am actually a fruit!',
     details: {
       syllables: 'to-ma-toes (3)',
       breakdown: 'to-ma-toes',
@@ -135,8 +147,9 @@ export const WORD_LIST: Word[] = [
     }
   },
   { 
-    en: 'potatoes', cn: '馬鈴薯', emoji: '🥔', pronunciation: '/pəˈteɪtəʊz/', category: 'vegetable', 
+    en: 'potatoes', cn: '馬鈴薯', emoji: '🥔', pronunciation: '/pə+teɪtəʊz/', category: 'vegetable', 
     sentence: 'We can make French fries from ____.',
+    riddle: 'I grow under the ground. You can mash me, fry me, or bake me into chips.',
     details: {
       syllables: 'po-ta-toes (3)',
       breakdown: 'po-ta-toes',
@@ -148,6 +161,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'lettuce', cn: '生菜', emoji: '🥬', pronunciation: '/ˈletɪs/', category: 'vegetable', 
     sentence: 'We use green ____ to make a salad.',
+    riddle: 'I am a green leaf used in salads. I am very crunchy and full of water.',
     details: {
       syllables: 'let-tuce (2)',
       breakdown: 'let-tuce',
@@ -159,6 +173,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'broccoli', cn: '西蘭花', emoji: '🥦', pronunciation: '/ˈbɒkəli/', category: 'vegetable', 
     sentence: '____ looks like a small green tree.',
+    riddle: 'I look like a tiny green tree. I am very healthy for your body!',
     details: {
       syllables: 'broc-co-li (3)',
       breakdown: 'broc-co-li',
@@ -170,6 +185,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'peas', cn: '傳統豌豆', emoji: '🟢', pronunciation: '/piːz/', category: 'vegetable', 
     sentence: 'Small green ____ are hidden in pods.',
+    riddle: 'We are tiny, green, and round. We live together in a long green pod.',
     details: {
       syllables: 'peas (1)',
       breakdown: 'p-eas',
@@ -181,6 +197,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'beans', cn: '豆莢', emoji: '🌱', pronunciation: '/biːnz/', category: 'vegetable', 
     sentence: 'Green ____ are long and crunchy.',
+    riddle: 'We are long green pods with seeds inside. We are crunchy and good for you.',
     details: {
       syllables: 'beans (1)',
       breakdown: 'b-eans',
@@ -192,6 +209,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'a lot of', cn: '很多', emoji: '💰', pronunciation: '', category: 'quantity', 
     sentence: 'There are ____ fruits in the basket.',
+    riddle: 'Use me when you have a big number or a large amount of something.',
     details: {
       syllables: 'a lot of (3)',
       breakdown: 'a + lot + of',
@@ -203,6 +221,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'fewer', cn: '少一些', emoji: '📉', pronunciation: '', category: 'quantity', 
     sentence: 'I want ____ candies because they are sweet.',
+    riddle: 'Use me when you are comparing two groups of countable things and one has less.',
     details: {
       syllables: 'few-er (2)',
       breakdown: 'few + er',
@@ -214,6 +233,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'less', cn: '少一些', emoji: '🥣', pronunciation: '', category: 'quantity', 
     sentence: 'Drink ____ soda to stay healthy.',
+    riddle: 'Use me when you have a smaller amount of something you cannot count, like water.',
     details: {
       syllables: 'less (1)',
       breakdown: 'l-ess',
@@ -225,6 +245,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'more', cn: '多一些', emoji: '📈', pronunciation: '', category: 'quantity', 
     sentence: 'Can I have ____ vegetables, please?',
+    riddle: 'Use me when you want a larger amount of something than you have now.',
     details: {
       syllables: 'more (1)',
       breakdown: 'm-ore',
@@ -236,6 +257,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'a little', cn: '少量', emoji: '💧', pronunciation: '', category: 'quantity', 
     sentence: 'Add ____ sugar to my tea.',
+    riddle: 'I mean a small amount of something you cannot count, like sugar.',
     details: {
       syllables: 'a lit-tle (3)',
       breakdown: 'a + lit-tle',
@@ -247,6 +269,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'a few', cn: '少量', emoji: '🤏', pronunciation: '', category: 'quantity', 
     sentence: 'I have ____ friends in the park.',
+    riddle: 'I mean a small number of things you can count, like some friends.',
     details: {
       syllables: 'a few (2)',
       breakdown: 'a + few',
@@ -258,6 +281,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'energy', cn: '能量', emoji: '⚡', pronunciation: '', category: 'nutrients', 
     sentence: 'Healthy food gives us ____ to play.',
+    riddle: 'I am what you need to run, jump, and play. Healthy food gives me to you.',
     details: {
       syllables: 'en-er-gy (3)',
       breakdown: 'en-er-gy',
@@ -269,6 +293,7 @@ export const WORD_LIST: Word[] = [
   { 
     en: 'protein', cn: '蛋白質', emoji: '💪', pronunciation: '', category: 'nutrients', 
     sentence: 'Meat and eggs have a lot of ____.',
+    riddle: 'I am found in meat and eggs. I help your muscles grow big and strong.',
     details: {
       syllables: 'pro-tein (2)',
       breakdown: 'pro-tein',
@@ -286,7 +311,7 @@ export const POKEMON_IDS = {
   fill: 54, // Psyduck
   bubble: 7, // Squirtle
   search: 1, // Bulbasaur
-  battle: 6, // Charizard
+  riddle: 6, // Charizard
   memory: 151, // Mew
 };
 

@@ -9,7 +9,7 @@ import SpellingBee from './components/SpellingBee';
 import FillBlanks from './components/FillBlanks';
 import BubblePop from './components/BubblePop';
 import WordSearch from './components/WordSearch';
-import PokemonBattle from './components/PokemonBattle';
+import RiddleGame from './components/RiddleGame';
 import MemoryGame from './components/MemoryGame';
 import Treehouse from './components/Treehouse';
 
@@ -90,19 +90,19 @@ const App: React.FC = () => {
             </button>
           ))}
           
-          {/* Battle Arena as a special bigger card or separate? Let's just add it to the flow */}
+          {/* Riddle Game Card */}
           <button
-              onClick={() => setCurrentGame(GameType.POKEMON_BATTLE)}
+              onClick={() => setCurrentGame(GameType.RIDDLE_GAME)}
               className="hand-drawn-card group flex flex-col items-center p-8 w-[240px] relative bg-[#fff7ed]"
             >
               <div className="mb-2">
-                <img src={getPokemonImg(6)} alt="poke" className="w-16 h-16 group-hover:scale-125 transition-transform" />
+                <img src={getPokemonImg(POKEMON_IDS.riddle)} alt="poke" className="w-16 h-16 group-hover:scale-125 transition-transform" />
               </div>
               <div className="icon-circle w-24 h-24 mb-6">
-                <span className="text-5xl">⚔️</span>
+                <span className="text-5xl">💡</span>
               </div>
-              <span className="text-2xl font-bold text-[#4a5568] text-center leading-tight">Battle Arena</span>
-              {completedGames.includes(GameType.POKEMON_BATTLE) && (
+              <span className="text-2xl font-bold text-[#4a5568] text-center leading-tight">Riddle Game</span>
+              {completedGames.includes(GameType.RIDDLE_GAME) && (
                 <div className="absolute bottom-2 right-4 text-2xl">⭐</div>
               )}
             </button>
@@ -153,7 +153,7 @@ const App: React.FC = () => {
             {currentGame === GameType.FILL_BLANKS && <FillBlanks words={WORD_LIST} onComplete={() => handleGameComplete(GameType.FILL_BLANKS)} onNextGame={() => setCurrentGame(GameType.DASHBOARD)} />}
             {currentGame === GameType.BUBBLE_POP && <BubblePop words={WORD_LIST} onComplete={() => handleGameComplete(GameType.BUBBLE_POP)} onNextGame={() => setCurrentGame(GameType.DASHBOARD)} />}
             {currentGame === GameType.WORD_SEARCH && <WordSearch words={WORD_LIST} onComplete={() => handleGameComplete(GameType.WORD_SEARCH)} onNextGame={() => setCurrentGame(GameType.DASHBOARD)} />}
-            {currentGame === GameType.POKEMON_BATTLE && <PokemonBattle words={WORD_LIST} onComplete={() => handleGameComplete(GameType.POKEMON_BATTLE)} onNextGame={() => setCurrentGame(GameType.DASHBOARD)} />}
+            {currentGame === GameType.RIDDLE_GAME && <RiddleGame words={WORD_LIST} onComplete={() => handleGameComplete(GameType.RIDDLE_GAME)} onNextGame={() => setCurrentGame(GameType.DASHBOARD)} />}
             {currentGame === GameType.MEMORY_GAME && <MemoryGame words={WORD_LIST} onComplete={() => handleGameComplete(GameType.MEMORY_GAME)} onNextGame={() => setCurrentGame(GameType.DASHBOARD)} />}
             {currentGame === GameType.TREEHOUSE && <Treehouse items={collectedFurniture} onPlay={() => setCurrentGame(GameType.DASHBOARD)} />}
           </div>

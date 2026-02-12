@@ -6,6 +6,7 @@ export interface Word {
   pronunciation: string;
   category: 'meat' | 'fruit' | 'staple' | 'vegetable' | 'quantity' | 'nutrients';
   sentence: string;
+  riddle?: string;
   details?: {
     syllables: string;
     breakdown: string;
@@ -24,7 +25,7 @@ export enum GameType {
   FILL_BLANKS = 'FILL_BLANKS',
   BUBBLE_POP = 'BUBBLE_POP',
   WORD_SEARCH = 'WORD_SEARCH',
-  POKEMON_BATTLE = 'POKEMON_BATTLE',
+  RIDDLE_GAME = 'RIDDLE_GAME',
   MEMORY_GAME = 'MEMORY_GAME',
   TREEHOUSE = 'TREEHOUSE'
 }
