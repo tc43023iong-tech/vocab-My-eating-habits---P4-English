@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Word } from '../types';
 import { POKEMON_IDS, getPokemonImg } from '../constants';
+import { playSound } from '../utils/audio';
 
 interface Props {
   words: Word[];
@@ -25,7 +26,6 @@ const FillBlanks: React.FC<Props> = ({ words, onComplete, onNextGame }) => {
       .sort(() => Math.random() - 0.5)
       .slice(0, 3);
     
-    // If not enough same category distractors, pick random
     if (distractors.length < 3) {
       const more = words
         .filter(w => w.en !== correct.en && !distractors.find(d => d.en === w.en))
@@ -40,12 +40,14 @@ const FillBlanks: React.FC<Props> = ({ words, onComplete, onNextGame }) => {
 
   const handleChoice = (word: Word) => {
     if (word.en === words[currentIndex].en) {
+      playSound('correct');
       setFeedback('Correct! Well done! 🌟');
       setTimeout(() => {
         if (currentIndex < words.length - 1) setCurrentIndex(c => c + 1);
         else onComplete();
       }, 1000);
     } else {
+      playSound('wrong');
       setFeedback('Not quite. Try another one! 🧐');
     }
   };

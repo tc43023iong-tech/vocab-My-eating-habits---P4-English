@@ -12,6 +12,7 @@ import WordSearch from './components/WordSearch';
 import RiddleGame from './components/RiddleGame';
 import MemoryGame from './components/MemoryGame';
 import Treehouse from './components/Treehouse';
+import TugOfWar from './components/TugOfWar';
 
 const App: React.FC = () => {
   const [currentGame, setCurrentGame] = useState<GameType>(GameType.DASHBOARD);
@@ -37,13 +38,13 @@ const App: React.FC = () => {
       { type: GameType.BUBBLE_POP, label: 'Bubble Pop', color: '#f0f9ff', icon: '🫧', pokemonId: 7 },
       { type: GameType.WORD_SEARCH, label: 'Word Search', color: '#fff1f2', icon: '🧩', pokemonId: 1 },
       { type: GameType.MEMORY_GAME, label: 'Memory Game', color: '#f0fdf4', icon: '🧠', pokemonId: 151 },
+      { type: GameType.TUG_OF_WAR, label: 'Tug of War', color: '#fff7ed', icon: '🤝', pokemonId: 39 }, // Jigglypuff
     ];
 
     return (
       <div className="flex flex-col items-center w-full">
         {/* Dashboard Header */}
         <div className="text-center mb-16 relative">
-          {/* Floating heads like the reference */}
           <div className="absolute -top-12 -left-20 text-6xl opacity-70 animate-wiggle">🐱</div>
           <div className="absolute -top-10 -right-20 text-6xl opacity-70">🐨</div>
           <div className="absolute top-20 -left-16 text-4xl opacity-50">🦊</div>
@@ -55,7 +56,7 @@ const App: React.FC = () => {
           <p className="text-2xl md:text-3xl text-gray-400 font-bold">Fun Learning Adventure 🖍️🎒</p>
         </div>
 
-        {/* Dashboard Grid - 2 rows, centered */}
+        {/* Dashboard Grid */}
         <div className="flex flex-wrap justify-center gap-6 w-full max-w-7xl">
           {dashboardItems.map((item) => (
             <button
@@ -64,7 +65,6 @@ const App: React.FC = () => {
               className="hand-drawn-card group flex flex-col items-center p-8 w-[240px] relative transition-all"
               style={{ backgroundColor: item.color }}
             >
-              {/* Pokemon head floating above the circle */}
               <div className="mb-2">
                 <img 
                   src={getPokemonImg(item.pokemonId)} 
@@ -72,18 +72,12 @@ const App: React.FC = () => {
                   className="w-16 h-16 group-hover:scale-125 transition-transform" 
                 />
               </div>
-              
-              {/* Icon Circle */}
               <div className="icon-circle w-24 h-24 mb-6">
                 <span className="text-5xl">{item.icon}</span>
               </div>
-              
-              {/* Label */}
               <span className="text-2xl font-bold text-[#4a5568] text-center leading-tight">
                 {item.label}
               </span>
-              
-              {/* Completion Star */}
               {completedGames.includes(item.type) && (
                 <div className="absolute bottom-2 right-4 text-2xl">⭐</div>
               )}
@@ -93,7 +87,7 @@ const App: React.FC = () => {
           {/* Riddle Game Card */}
           <button
               onClick={() => setCurrentGame(GameType.RIDDLE_GAME)}
-              className="hand-drawn-card group flex flex-col items-center p-8 w-[240px] relative bg-[#fff7ed]"
+              className="hand-drawn-card group flex flex-col items-center p-8 w-[240px] relative bg-[#eff6ff]"
             >
               <div className="mb-2">
                 <img src={getPokemonImg(POKEMON_IDS.riddle)} alt="poke" className="w-16 h-16 group-hover:scale-125 transition-transform" />
@@ -113,7 +107,6 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen relative flex flex-col items-center py-16 px-6 overflow-x-hidden">
-      {/* Universal Nav Header */}
       <div className="w-full max-w-7xl flex justify-between items-center mb-16 z-20">
         <button 
           onClick={() => setCurrentGame(GameType.DASHBOARD)}
@@ -142,7 +135,6 @@ const App: React.FC = () => {
           renderDashboard()
         ) : (
           <div className="soft-card p-12 min-h-[700px] flex flex-col relative overflow-hidden">
-            {/* Soft decorative background dots inside component */}
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none -z-10" 
                  style={{ backgroundImage: 'radial-gradient(#d1d5db 1px, transparent 1px)', backgroundSize: '15px 15px' }}></div>
             
@@ -155,12 +147,12 @@ const App: React.FC = () => {
             {currentGame === GameType.WORD_SEARCH && <WordSearch words={WORD_LIST} onComplete={() => handleGameComplete(GameType.WORD_SEARCH)} onNextGame={() => setCurrentGame(GameType.DASHBOARD)} />}
             {currentGame === GameType.RIDDLE_GAME && <RiddleGame words={WORD_LIST} onComplete={() => handleGameComplete(GameType.RIDDLE_GAME)} onNextGame={() => setCurrentGame(GameType.DASHBOARD)} />}
             {currentGame === GameType.MEMORY_GAME && <MemoryGame words={WORD_LIST} onComplete={() => handleGameComplete(GameType.MEMORY_GAME)} onNextGame={() => setCurrentGame(GameType.DASHBOARD)} />}
+            {currentGame === GameType.TUG_OF_WAR && <TugOfWar words={WORD_LIST} onComplete={() => handleGameComplete(GameType.TUG_OF_WAR)} onNextGame={() => setCurrentGame(GameType.DASHBOARD)} />}
             {currentGame === GameType.TREEHOUSE && <Treehouse items={collectedFurniture} onPlay={() => setCurrentGame(GameType.DASHBOARD)} />}
           </div>
         )}
       </div>
       
-      {/* Background Decor */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none opacity-5 -z-10">
         <div className="absolute top-20 left-10 text-9xl">🍡</div>
         <div className="absolute bottom-20 right-10 text-9xl">🧁</div>

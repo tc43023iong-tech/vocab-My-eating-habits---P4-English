@@ -27,7 +27,8 @@ export enum GameType {
   WORD_SEARCH = 'WORD_SEARCH',
   RIDDLE_GAME = 'RIDDLE_GAME',
   MEMORY_GAME = 'MEMORY_GAME',
-  TREEHOUSE = 'TREEHOUSE'
+  TREEHOUSE = 'TREEHOUSE',
+  TUG_OF_WAR = 'TUG_OF_WAR'
 }
 
 export interface Furniture {

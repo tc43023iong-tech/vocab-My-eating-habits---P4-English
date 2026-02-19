@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Word } from '../types';
 import { POKEMON_IDS, getPokemonImg } from '../constants';
+import { playSound } from '../utils/audio';
 
 interface Props {
   words: Word[];
@@ -37,10 +38,12 @@ const MatchingGame: React.FC<Props> = ({ words, onComplete, onNextGame }) => {
     if (selectedEn && selectedCn) {
       const match = currentWords.find(w => w.en === selectedEn && w.cn === selectedCn);
       if (match) {
+        playSound('correct');
         setMatches(prev => [...prev, selectedEn]);
         setSelectedEn(null);
         setSelectedCn(null);
       } else {
+        playSound('wrong');
         setTimeout(() => {
           setSelectedEn(null);
           setSelectedCn(null);

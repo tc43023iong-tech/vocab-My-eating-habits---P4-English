@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Word } from '../types';
 import { POKEMON_IDS, getPokemonImg } from '../constants';
+import { playSound } from '../utils/audio';
 
 interface Props {
   words: Word[];
@@ -29,19 +30,23 @@ const SpellingBee: React.FC<Props> = ({ words, onComplete, onNextGame }) => {
 
   const handleClickLetter = (char: string, index: number) => {
     if (usedIndices.includes(index)) return;
-    setCurrentInput(prev => [...prev, char]);
-    setUsedIndices(prev => [...prev, index]);
+    
+    // Check if the clicked letter is the correct next letter
+    const target = words[currentIndex].en.toLowerCase().replace(/ /g, '');
+    const nextExpected = target[currentInput.length];
+    
+    if (char === nextExpected) {
+      playSound('correct');
+      setCurrentInput(prev => [...prev, char]);
+      setUsedIndices(prev => [...prev, index]);
+    } else {
+      playSound('wrong');
+    }
   };
 
   const handleUndo = (idx: number) => {
-    // To allow undoing, if they click a letter in the display area, remove the LAST one of that character?
-    // User request: "点错了单词再点一次字母就可以取消"
-    // Let's implement click on input letter to undo.
-    const charToUndo = currentInput[idx];
-    // Find the index in scrambled that corresponds to the last used index of this char
     const newUsedIndices = [...usedIndices];
-    const removedUsedIndex = newUsedIndices.splice(idx, 1)[0];
-    
+    newUsedIndices.splice(idx, 1);
     setUsedIndices(newUsedIndices);
     setCurrentInput(prev => prev.filter((_, i) => i !== idx));
   };
@@ -71,11 +76,9 @@ const SpellingBee: React.FC<Props> = ({ words, onComplete, onNextGame }) => {
         <p className="text-xl text-gray-500 mt-2">{words[currentIndex].pronunciation}</p>
       </div>
 
-      {/* Input Display */}
       <div className="flex flex-wrap justify-center gap-2 min-h-[60px]">
         {targetWord.split('').map((char, i) => {
             if (char === ' ') return <div key={i} className="w-8" />;
-            const currentIdxInInput = currentInput.length > i ? i : -1;
             return (
                 <div 
                     key={i} 
@@ -88,7 +91,6 @@ const SpellingBee: React.FC<Props> = ({ words, onComplete, onNextGame }) => {
         })}
       </div>
 
-      {/* Letter Bank */}
       <div className="flex flex-wrap justify-center gap-3">
         {scrambled.map((item, idx) => (
           <button
@@ -106,7 +108,7 @@ const SpellingBee: React.FC<Props> = ({ words, onComplete, onNextGame }) => {
         ))}
       </div>
       
-      <p className="text-gray-400 text-sm">Tip: Click a letter in the boxes above to undo!</p>
+      <p className="text-gray-400 text-sm">Tip: Click the correct letter to spell the word!</p>
     </div>
   );
 };

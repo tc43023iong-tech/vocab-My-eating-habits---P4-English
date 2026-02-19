@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Word } from '../types';
 import { POKEMON_IDS, getPokemonImg } from '../constants';
+import { playSound } from '../utils/audio';
 
 interface Props {
   words: Word[];
@@ -28,6 +29,7 @@ const EmojiDetective: React.FC<Props> = ({ words, onComplete, onNextGame }) => {
 
   const handleChoice = (word: Word) => {
     if (word.en === words[currentIndex].en) {
+      playSound('correct');
       setFeedback('CORRECT! 🌟');
       setScore(s => s + 1);
       setTimeout(() => {
@@ -38,6 +40,7 @@ const EmojiDetective: React.FC<Props> = ({ words, onComplete, onNextGame }) => {
         }
       }, 800);
     } else {
+      playSound('wrong');
       setFeedback('Oops! Try again! 🧐');
     }
   };
