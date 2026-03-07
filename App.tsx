@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { GameType, Word, Furniture } from './types';
-import { WORD_LIST, FURNITURE_POOL, POKEMON_IDS, getPokemonImg } from './constants';
+import { GameType, Word } from './types';
+import { WORD_LIST, POKEMON_IDS, getPokemonImg } from './constants';
 import WordListReview from './components/WordListReview';
 import EmojiDetective from './components/EmojiDetective';
 import MatchingGame from './components/MatchingGame';
@@ -11,22 +11,18 @@ import BubblePop from './components/BubblePop';
 import WordSearch from './components/WordSearch';
 import RiddleGame from './components/RiddleGame';
 import MemoryGame from './components/MemoryGame';
-import Treehouse from './components/Treehouse';
 import TugOfWar from './components/TugOfWar';
+import SpellingTugOfWar from './components/SpellingTugOfWar';
 
 const App: React.FC = () => {
   const [currentGame, setCurrentGame] = useState<GameType>(GameType.DASHBOARD);
   const [completedGames, setCompletedGames] = useState<GameType[]>([]);
-  const [collectedFurniture, setCollectedFurniture] = useState<Furniture[]>([]);
 
   const handleGameComplete = (gameType: GameType) => {
     if (!completedGames.includes(gameType)) {
       setCompletedGames(prev => [...prev, gameType]);
-      const uncollected = FURNITURE_POOL.filter(f => !collectedFurniture.find(cf => cf.id === f.id));
-      const newItems = uncollected.slice(0, 2);
-      setCollectedFurniture(prev => [...prev, ...newItems]);
     }
-    setCurrentGame(GameType.TREEHOUSE);
+    setCurrentGame(GameType.DASHBOARD);
   };
 
   const renderDashboard = () => {
@@ -39,6 +35,7 @@ const App: React.FC = () => {
       { type: GameType.WORD_SEARCH, label: 'Word Search', color: '#fff1f2', icon: '🧩', pokemonId: 1 },
       { type: GameType.MEMORY_GAME, label: 'Memory Game', color: '#f0fdf4', icon: '🧠', pokemonId: 151 },
       { type: GameType.TUG_OF_WAR, label: 'Tug of War', color: '#fff7ed', icon: '🤝', pokemonId: 39 }, // Jigglypuff
+      { type: GameType.SPELLING_TUG_OF_WAR, label: 'Spelling Tug', color: '#f5f3ff', icon: '✍️', pokemonId: 68 }, // Machamp
     ];
 
     return (
@@ -121,12 +118,6 @@ const App: React.FC = () => {
           >
             📖 Word List
           </button>
-          <button 
-            onClick={() => setCurrentGame(GameType.TREEHOUSE)}
-            className="bg-white px-10 py-3 rounded-full border-4 border-[#8ba6ff] text-2xl font-bold text-[#8ba6ff] shadow-sm hover:-rotate-1 transition-all"
-          >
-            🌳 Treehouse ({collectedFurniture.length})
-          </button>
         </div>
       </div>
 
@@ -148,7 +139,7 @@ const App: React.FC = () => {
             {currentGame === GameType.RIDDLE_GAME && <RiddleGame words={WORD_LIST} onComplete={() => handleGameComplete(GameType.RIDDLE_GAME)} onNextGame={() => setCurrentGame(GameType.DASHBOARD)} />}
             {currentGame === GameType.MEMORY_GAME && <MemoryGame words={WORD_LIST} onComplete={() => handleGameComplete(GameType.MEMORY_GAME)} onNextGame={() => setCurrentGame(GameType.DASHBOARD)} />}
             {currentGame === GameType.TUG_OF_WAR && <TugOfWar words={WORD_LIST} onComplete={() => handleGameComplete(GameType.TUG_OF_WAR)} onNextGame={() => setCurrentGame(GameType.DASHBOARD)} />}
-            {currentGame === GameType.TREEHOUSE && <Treehouse items={collectedFurniture} onPlay={() => setCurrentGame(GameType.DASHBOARD)} />}
+            {currentGame === GameType.SPELLING_TUG_OF_WAR && <SpellingTugOfWar words={WORD_LIST} onComplete={() => handleGameComplete(GameType.SPELLING_TUG_OF_WAR)} onNextGame={() => setCurrentGame(GameType.DASHBOARD)} />}
           </div>
         )}
       </div>

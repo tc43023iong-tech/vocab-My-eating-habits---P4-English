@@ -1,5 +1,5 @@
 
-import { Word, Furniture } from './types';
+import { Word } from './types';
 
 export const WORD_LIST: Word[] = [
   { 
@@ -313,25 +313,7 @@ export const POKEMON_IDS = {
   search: 1, // Bulbasaur
   riddle: 6, // Charizard
   memory: 151, // Mew
+  spellingTug: 68, // Machamp
 };
-
-export const FURNITURE_POOL: Furniture[] = [
-  { id: '1', name: 'Comfy Sofa', emoji: '🛋️' },
-  { id: '2', name: 'Cute Desk', emoji: '🪑' },
-  { id: '3', name: 'Plant Pot', emoji: '🪴' },
-  { id: '4', name: 'Magic Lamp', emoji: '🏮' },
-  { id: '5', name: 'Big Rug', emoji: '🧶' },
-  { id: '6', name: 'Toy Chest', emoji: '📦' },
-  { id: '7', name: 'Bookshelf', emoji: '📚' },
-  { id: '8', name: 'Painting', emoji: '🖼️' },
-  { id: '9', name: 'Bird Cage', emoji: '🦜' },
-  { id: '10', name: 'Game Console', emoji: '🎮' },
-  { id: '11', name: 'Fruit Bowl', emoji: '🍎' },
-  { id: '12', name: 'Clock', emoji: '⏰' },
-  { id: '13', name: 'Bear Plush', emoji: '🧸' },
-  { id: '14', name: 'Mini Fridge', emoji: '🧊' },
-  { id: '15', name: 'Starlight Ceiling', emoji: '✨' },
-  { id: '16', name: 'Crayon Box', emoji: '🖍️' },
-];
 
 export const getPokemonImg = (id: number) => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;

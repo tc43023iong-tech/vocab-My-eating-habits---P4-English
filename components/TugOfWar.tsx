@@ -18,14 +18,14 @@ const TugOfWar: React.FC<Props> = ({ words, onComplete, onNextGame }) => {
   const [winner, setWinner] = useState<string | null>(null);
   const [freeze, setFreeze] = useState(false);
 
-  // Use a subset of 5 questions per game
+  // Use a subset of 9 questions per game
   useEffect(() => {
-    const subset = [...words].sort(() => Math.random() - 0.5).slice(0, 5);
+    const subset = [...words].sort(() => Math.random() - 0.5).slice(0, 9);
     setCurrentWords(subset);
   }, [words]);
 
   useEffect(() => {
-    if (currentWords.length > 0 && questionIndex < 5) {
+    if (currentWords.length > 0 && questionIndex < 9) {
       const correct = currentWords[questionIndex];
       const others = words
         .filter(w => w.en !== correct.en)
@@ -46,7 +46,7 @@ const TugOfWar: React.FC<Props> = ({ words, onComplete, onNextGame }) => {
       setScores(prev => ({ ...prev, [player]: prev[player] + 1 }));
       
       setTimeout(() => {
-        if (questionIndex < 4) {
+        if (questionIndex < 8) {
           setQuestionIndex(prev => prev + 1);
         } else {
           // Determine final winner
@@ -142,7 +142,7 @@ const TugOfWar: React.FC<Props> = ({ words, onComplete, onNextGame }) => {
       )}
 
       <div className="mt-4 text-center">
-        <p className="text-gray-400 font-bold italic">Round {questionIndex + 1} of 5 - Quickest to answer wins the point! ⚡</p>
+        <p className="text-gray-400 font-bold italic">Round {questionIndex + 1} of 9 - Quickest to answer wins the point! ⚡</p>
       </div>
     </div>
   );

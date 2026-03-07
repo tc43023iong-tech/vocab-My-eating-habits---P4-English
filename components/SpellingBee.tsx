@@ -99,7 +99,7 @@ const SpellingBee: React.FC<Props> = ({ words, onComplete, onNextGame }) => {
             onClick={() => handleClickLetter(item.char, idx)}
             className={`w-14 h-14 rounded-xl crayon-border text-2xl font-bold transition-all ${
               usedIndices.includes(idx) || item.char === ' '
-                ? 'bg-gray-200 text-gray-100 border-gray-200'
+                ? 'opacity-0 pointer-events-none'
                 : 'bg-white hover:bg-yellow-100 text-gray-700 active:scale-90'
             }`}
           >
